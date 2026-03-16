@@ -45,6 +45,7 @@ classifiers = [
 dependencies = [
     "langchain-core>=0.1.0",
     "pydantic>=2.0.0",
+    tomli_w
 ]
 
 [project.optional-dependencies]
@@ -114,11 +115,11 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/llm-nexus"
-Documentation = "https://github.com/yourusername/llm-nexus#readme"
-Repository = "https://github.com/yourusername/llm-nexus"
-Issues = "https://github.com/yourusername/llm-nexus/issues"
-Changelog = "https://github.com/yourusername/llm-nexus/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/alireza-asadi_fedex/llm-nexus"
+Documentation = "https://github.com/alireza-asadi_fedex/llm-nexus#readme"
+Repository = "https://github.com/alireza-asadi_fedex/llm-nexus"
+Issues = "https://github.com/alireza-asadi_fedex/llm-nexus/issues"
+Changelog = "https://github.com/alireza-asadi_fedex/llm-nexus/blob/main/CHANGELOG.md"
 
 [tool.setuptools]
 packages = ["llm_nexus"]
