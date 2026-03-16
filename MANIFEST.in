@@ -1,0 +1,8 @@
+include README.md
+include LICENSE
+include CHANGELOG.md
+recursive-include llm_nexus *.py
+recursive-include llm_nexus *.md
+global-exclude __pycache__
+global-exclude *.py[co]
+global-exclude .DS_Store
