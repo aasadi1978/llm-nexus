@@ -1,19 +1,21 @@
 [build-system]
-requires = ["setuptools>=69", "wheel"]
+requires = [
+    "setuptools>=69",
+    "wheel",
+]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "llm-nexus"
-version = "1.0.0"
+version = "1.0.1"
 description = "Unified interface for multiple LLM providers: Anthropic, OpenAI, Groq, and HuggingFace"
 readme = "README.md"
 requires-python = ">=3.10"
-license = {text = "MIT"}
 authors = [
-    {name = "Alireza Asadi", email = "alireza.asadi@fedex.com"}
+    { name = "Alireza Asadi", email = "alireza.asadi@fedex.com" },
 ]
 maintainers = [
-    {name = "Alireza Asadi", email = "alireza.asadi@fedex.com"}
+    { name = "Alireza Asadi", email = "alireza.asadi@fedex.com" },
 ]
 keywords = [
     "llm",
@@ -26,7 +28,7 @@ keywords = [
     "gpt",
     "langchain",
     "multi-provider",
-    "unified-interface"
+    "unified-interface",
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -40,69 +42,51 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
 ]
-
-# Core dependencies required for basic functionality
 dependencies = [
     "langchain-core>=0.1.0",
     "pydantic>=2.0.0",
-    tomli_w
+    "tomli_w",
 ]
 
+[project.license]
+text = "MIT"
+
 [project.optional-dependencies]
-# Anthropic support (both direct and Vertex AI)
 anthropic = [
     "anthropic>=0.18.0",
     "langchain-anthropic>=0.1.0",
 ]
-
-# Vertex AI support (includes Google Cloud integration)
 vertex = [
     "google-cloud-aiplatform>=1.38.0",
     "langchain-google-vertexai>=0.1.0",
 ]
-
-# OpenAI support
 openai = [
     "openai>=1.0.0",
     "langchain-openai>=0.1.0",
 ]
-
-# Groq support
 groq = [
     "langchain-groq>=0.1.0",
 ]
-
-# HuggingFace support
 huggingface = [
     "langchain-huggingface>=0.0.1",
     "transformers>=4.30.0",
     "torch>=2.0.0",
     "sentence-transformers>=2.0.0",
 ]
-
-# Google Generative AI support
 google-genai = [
     "langchain-google-genai>=0.1.0",
 ]
-
-# Embedding models support
 embeddings = [
     "langchain-community>=0.1.0",
     "langchain-chroma>=0.1.0",
     "sentence-transformers>=2.0.0",
 ]
-
-# HTTP client support (optional, for SSL bypass scenarios)
 http = [
     "httpx>=0.24.0",
 ]
-
-# Full installation with all providers
 all = [
     "llm-nexus[anthropic,vertex,openai,groq,huggingface,google-genai,embeddings,http]",
 ]
-
-# Development dependencies
 dev = [
     "pytest>=7.0.0",
     "pytest-cov>=4.0.0",
@@ -122,45 +106,41 @@ Issues = "https://github.com/alireza-asadi_fedex/llm-nexus/issues"
 Changelog = "https://github.com/alireza-asadi_fedex/llm-nexus/blob/main/CHANGELOG.md"
 
 [tool.setuptools]
-packages = ["llm_nexus"]
+packages = [
+    "llm_nexus",
+]
 
 [tool.setuptools.package-data]
-llm_nexus = ["py.typed"]
+llm_nexus = [
+    "py.typed",
+]
 
 [tool.black]
 line-length = 100
-target-version = ['py310', 'py311', 'py312']
-include = '\.pyi?$'
-extend-exclude = '''
-/(
-  # directories
-  \.eggs
-  | \.git
-  | \.hg
-  | \.mypy_cache
-  | \.tox
-  | \.venv
-  | build
-  | dist
-)/
-'''
+target-version = [
+    "py310",
+    "py311",
+    "py312",
+]
+include = "\\.pyi?$"
+extend-exclude = "/(\n  # directories\n  \\.eggs\n  | \\.git\n  | \\.hg\n  | \\.mypy_cache\n  | \\.tox\n  | \\.venv\n  | build\n  | dist\n)/\n"
 
 [tool.ruff]
 line-length = 100
 target-version = "py310"
 select = [
-    "E",  # pycodestyle errors
-    "W",  # pycodestyle warnings
-    "F",  # pyflakes
-    "I",  # isort
-    "B",  # flake8-bugbear
-    "C4", # flake8-comprehensions
-    "UP", # pyupgrade
+    "E",
+    "W",
+    "F",
+    "I",
+    "B",
+    "C4",
+    "UP",
 ]
 ignore = [
-    "E501",  # line too long, handled by black
-    "B008",  # do not perform function calls in argument defaults
-    "C901",  # too complex
+    "E501",
+    "B008",
+    "C901",
 ]
 
 [tool.mypy]
@@ -171,8 +151,16 @@ disallow_untyped_defs = false
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
-python_files = ["test_*.py"]
-python_classes = ["Test*"]
-python_functions = ["test_*"]
+testpaths = [
+    "tests",
+]
+python_files = [
+    "test_*.py",
+]
+python_classes = [
+    "Test*",
+]
+python_functions = [
+    "test_*",
+]
 addopts = "-v --cov=llm_nexus --cov-report=term-missing"
