@@ -98,7 +98,7 @@ git remote -v
 
 echo ------------------------------------------------------------
 echo Pushing to remote repository origin
-git push -u origin main --force
+git push -u origin master --force
 if errorlevel 1 (
     echo Push failed. Please check the error messages above.
     exit /b 1
@@ -120,7 +120,7 @@ if "%tag%" neq "" (
 
 echo ------------------------------------------------------------
 echo Pushing to remote repository origin_fdx
-git push -u origin_fdx main --force
+git push -u origin_fdx master --force
 if errorlevel 1 (
     echo Push failed. Please check the error messages above.
     exit /b 1
