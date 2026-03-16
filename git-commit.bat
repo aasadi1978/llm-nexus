@@ -1,7 +1,7 @@
 setlocal enabledelayedexpansion
 @echo off
 
-set APP_NAME=ragent
+set APP_NAME=llm-nexus
 set APP_VERSION=
 
 call .venv/Scripts/activate
@@ -140,6 +140,9 @@ if "%tag%" neq "" (
     )
 )
 
-@REM call build-distributable-package.bat
+:: build whl and tar.gz files
+echo ------------------------------------------------------------
+echo Building distributable packages ...
+call build-distributable-package.bat
 
 endlocal
