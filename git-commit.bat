@@ -119,24 +119,24 @@ if "%tag%" neq "" (
 )
 
 echo ------------------------------------------------------------
-echo Pushing to remote repository origin_fdx
-git push -u origin_fdx master --force
+echo Pushing to remote repository origin_private
+git push -u origin_private master --force
 if errorlevel 1 (
     echo Push failed. Please check the error messages above.
     exit /b 1
 ) else (
-    echo Push to origin_fdx successful.
+    echo Push to origin_private successful.
 )
 
 echo ------------------------------------------------------------
 if "%tag%" neq "" (
-    echo Pushing tags to remote repositories origin_fdx
-    echo Pushing tag %tag% to origin_fdx
-    git push origin_fdx tag %tag%
+    echo Pushing tags to remote repositories origin_private
+    echo Pushing tag %tag% to origin_private
+    git push origin_private tag %tag%
     if errorlevel 1 (
-        echo Push tags to origin_fdx failed. Please check the error messages above.
+        echo Push tags to origin_private failed. Please check the error messages above.
     ) else (
-        echo Push tags to origin_fdx successful.
+        echo Push tags to origin_private successful.
     )
 )
 

@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "llm-nexus"
-version = "1.0.2"
+version = "1.0.3"
 description = "Unified interface for multiple LLM providers: Anthropic, OpenAI, Groq, and HuggingFace"
 readme = "README.md"
 requires-python = ">=3.10"
