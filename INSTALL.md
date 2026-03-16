@@ -35,11 +35,11 @@ pip install -e "./llm-nexus[all]"
 
 ```bash
 # Install directly from GitHub
-pip install git+https://github.com/yourusername/llm-nexus.git
+pip install git+https://github.com/alireza-asadi_fedex/llm-nexus.git
 
 # Or with specific branch/tag
-pip install git+https://github.com/yourusername/llm-nexus.git@main
-pip install git+https://github.com/yourusername/llm-nexus.git@v1.0.0
+pip install git+https://github.com/alireza-asadi_fedex/llm-nexus.git@main
+pip install git+https://github.com/alireza-asadi_fedex/llm-nexus.git@v1.0.0
 ```
 
 ## Using in Your Applications
@@ -134,6 +134,7 @@ response = llm_basic.invoke(messages)
 Create a `.env` file or set environment variables:
 
 **Option A: Anthropic Direct API**
+
 ```env
 ANTHROPIC_API_KEY=sk-ant-xxxxx
 ANTHROPIC_BASIC_MODEL=claude-haiku-4-5-20251001
@@ -141,6 +142,7 @@ ANTHROPIC_ADVANCED_MODEL=claude-opus-4-1-20250805
 ```
 
 **Option B: Google Vertex AI (for Anthropic)**
+
 ```env
 GOOGLE_APPLICATION_CREDENTIALS=/path/to/credentials.json
 GOOGLE_CLOUD_PROJECT=your-project-id
@@ -150,11 +152,13 @@ ANTHROPIC_VERTEX_ADVANCED_MODEL=claude-opus-4-6@default
 ```
 
 **Option C: OpenAI**
+
 ```env
 OPENAI_API_KEY=sk-xxxxx
 ```
 
 **Option D: Groq**
+
 ```env
 GROQ_API_KEY=gsk_xxxxx
 GROQ_BASIC_MODEL=llama-3.1-8b-instant
@@ -162,6 +166,7 @@ GROQ_ADVANCED_MODEL=llama-3.3-70b-versatile
 ```
 
 **Option E: HuggingFace**
+
 ```env
 HUGGINGFACE_API_KEY=hf_xxxxx
 ```
@@ -290,7 +295,7 @@ If you want to build the package yourself:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/llm-nexus.git
+git clone https://github.com/alireza-asadi_fedex/llm-nexus.git
 cd llm-nexus
 
 # Install build tools
@@ -312,6 +317,7 @@ pip install dist/llm_nexus-1.0.0-py3-none-any.whl
 ### Issue: "No module named 'llm_nexus'"
 
 **Solution**: Ensure llm-nexus is installed:
+
 ```bash
 pip list | grep llm-nexus
 pip install llm-nexus  # or pip install -e ./llm-nexus
@@ -325,6 +331,7 @@ pip install llm-nexus  # or pip install -e ./llm-nexus
 
 **Solution 1** (Preferred): Fix SSL certificates
 **Solution 2** (Dev only): Use SSL bypass
+
 ```python
 from llm_nexus.utils import create_ssl_bypass_context
 from llm_nexus.config import AI_CONFIG
@@ -335,6 +342,7 @@ AI_CONFIG.set_ssl_verification_bypass(create_ssl_bypass_context)
 ### Issue: Import errors with LangChain
 
 **Solution**: Ensure LangChain dependencies are installed:
+
 ```bash
 pip install "llm-nexus[all]"
 ```
@@ -358,6 +366,7 @@ else:
 ```
 
 Run:
+
 ```bash
 python test_installation.py
 ```
@@ -372,7 +381,8 @@ python test_installation.py
 ## Support
 
 If you encounter issues:
+
 1. Check this installation guide
 2. Review the [README.md](README.md)
-3. Search [GitHub Issues](https://github.com/yourusername/llm-nexus/issues)
+3. Search [GitHub Issues](https://github.com/alireza-asadi_fedex/llm-nexus/issues)
 4. Create a new issue with details
