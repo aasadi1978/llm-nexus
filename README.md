@@ -23,9 +23,6 @@ A unified, provider-agnostic Python wrapper for multiple LLM providers including
 ```bash
 # From FedEx GitHub (authentication required)
 pip install git+https://github.com/alireza-asadi_fedex/llm-nexus.git
-
-# From Public GitHub
-pip install git+https://github.com/aasadi1978/llm-nexus.git
 ```
 
 > **Note**: If you encounter installation issues, please contact the author at alireza.asadi@fedex.com/a.r.asadi@gmail.com for a pre-built distributable package (e.g., `.whl` file).
