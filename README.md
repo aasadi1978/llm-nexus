@@ -21,11 +21,10 @@ A unified, provider-agnostic Python wrapper for multiple LLM providers including
 ### Quick Install from Git Repository
 
 ```bash
-# From FedEx GitHub (authentication required)
 pip install git+https://github.com/alireza-asadi_fedex/llm-nexus.git
 ```
 
-> **Note**: If you encounter installation issues, please contact the author at alireza.asadi@fedex.com/a.r.asadi@gmail.com for a pre-built distributable package (e.g., `.whl` file).
+> **Note**: If you encounter installation issues, please contact the author at alireza.asadi@fedex.com for a pre-built distributable package (e.g., `.whl` file).
 
 ### Install with Specific Providers
 
@@ -158,7 +157,3 @@ Contributions welcome! Please submit a Pull Request.
 
 - Issues: [GitHub Issues](https://github.com/yourusername/llm-nexus/issues)
 - Email: alireza.asadi@fedex.com
-
----
-
-Author: Alireza Asadi (alireza.asadi@fedex.com/a.r.asadi@gmail.com)
