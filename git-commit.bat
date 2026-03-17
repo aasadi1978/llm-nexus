@@ -1,7 +1,8 @@
 setlocal enabledelayedexpansion
 @echo off
 
-set APP_NAME=llm-nexus
+:: set prject_title to current directory name in lower case
+for %%f in ("%cd%") do set "APP_NAME=%%~nxf"
 set APP_VERSION=
 
 call .venv/Scripts/activate
@@ -14,7 +15,9 @@ if %EXITCODE% neq 0 (
     echo Failed to run auto_version.py. Please check the error messages above.
     exit /b %EXITCODE%
 )
+
 echo ------------------------------------------------------------
+echo package name will be in the format: %APP_NAME%-py3-%APP_VERSION%
 git init
 echo ------------------------------------------------------------
 
