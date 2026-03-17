@@ -5,7 +5,7 @@
 A unified, provider-agnostic Python wrapper for multiple LLM providers including Anthropic (Claude), OpenAI (GPT), Groq, and HuggingFace.
 
 [![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![License](https://img.shields.io/badge/license-FedEx%20Express%20Proprietary-purple)](LICENSE)
 
 ## ✨ Features
 
@@ -18,18 +18,34 @@ A unified, provider-agnostic Python wrapper for multiple LLM providers including
 
 ## 📦 Installation
 
+### Quick Install from Git Repository
+
 ```bash
-# Basic installation
-pip install llm-nexus
+# From FedEx GitHub (authentication required)
+pip install git+https://github.com/alireza-asadi_fedex/llm-nexus.git
 
-# With specific providers
-pip install "llm-nexus[anthropic]"
-pip install "llm-nexus[openai]"
-pip install "llm-nexus[all]"
+# From Public GitHub
+pip install git+https://github.com/aasadi1978/llm-nexus.git
+```
 
-# For local development
+> **Note**: If you encounter installation issues, please contact the author at alireza.asadi@fedex.com/a.r.asadi@gmail.com for a pre-built distributable package (e.g., `.whl` file).
+
+### Install with Specific Providers
+
+```bash
+pip install "llm-nexus[anthropic]"   # Anthropic only
+pip install "llm-nexus[openai]"      # OpenAI only
+pip install "llm-nexus[groq]"        # Groq only
+pip install "llm-nexus[all]"         # All providers
+```
+
+### For Local Development
+
+```bash
 pip install -e ".[all,dev]"
 ```
+
+For more installation options, see [INSTALL.md](INSTALL.md).
 
 ## 🚀 Quick Start
 
@@ -135,7 +151,7 @@ pytest --cov=llm_nexus
 
 ## 📄 License
 
-MIT License - see [LICENSE](LICENSE)
+FedEx Express Proprietary - see [LICENSE](LICENSE)
 
 ## 🤝 Contributing
 
@@ -148,5 +164,4 @@ Contributions welcome! Please submit a Pull Request.
 
 ---
 
-Made with ❤️ by Alireza Asadi
-"# llm-nexus" 
+Author: Alireza Asadi (alireza.asadi@fedex.com/a.r.asadi@gmail.com)

@@ -7,11 +7,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "llm-nexus"
-version = "1.0.6"
+version = "1.0.7"
 description = "Unified interface for multiple LLM providers: Anthropic, OpenAI, Groq, and HuggingFace"
 readme = "README.md"
 requires-python = ">=3.10"
-license = "MIT"
+license = "LicenseRef-FedEx-Express-Proprietary"
 authors = [
     { name = "Alireza Asadi", email = "alireza.asadi@fedex.com" },
 ]
