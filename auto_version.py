@@ -41,11 +41,9 @@ try:
     version = args.version or f"{major}.{minor}.{patch}"
     config['project']['version'] = version or current_version
 
-    expanded_config = expand_env_vars_in_toml(config)
-
     # ---- Write back ----
     with open("pyproject.toml", "wb") as f:
-        tomli_w.dump(expanded_config, f)
+        tomli_w.dump(config, f)
     
     #Verify:
     with open("pyproject.toml", "rb") as f:

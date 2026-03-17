@@ -33,13 +33,18 @@ pip install -e "./llm-nexus[all]"
 
 ### Option 3: Install from Git Repository
 
-```bash
 # Install directly from GitHub
-pip install git+https://github.com/alireza-asadi_fedex/llm-nexus.git
+
+- **FedEx Github Repository (Authentication required)**: `pip install git+https://github.com/alireza-asadi_fedex/llm-nexus.git`
+- **Public Github Repository**: `pip install git+https://github.com/aasadi1978/llm-nexus.git`
 
 # Or with specific branch/tag
-pip install git+https://github.com/alireza-asadi_fedex/llm-nexus.git@main
+
+```bash
+pip install git+https://github.com/alireza-asadi_fedex/llm-nexus.git@master
 pip install git+https://github.com/alireza-asadi_fedex/llm-nexus.git@v1.0.0
+pip install git+https://github.com/aasadi1978/llm-nexus.git@master
+pip install git+https://github.com/aasadi1978/llm-nexus.git@v1.0.0
 ```
 
 ## Using in Your Applications
