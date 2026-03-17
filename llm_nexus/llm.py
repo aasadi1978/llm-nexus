@@ -1,6 +1,7 @@
 import logging
 from langchain_core.messages import HumanMessage
 
+
 class LLMModel:
 
     _instance = None
