@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "llm-nexus"
-version = "1.0.11"
+version = "1.0.12"
 description = "Unified interface for multiple LLM providers: Anthropic, OpenAI, Groq, and HuggingFace"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -40,7 +40,6 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
 ]
 dependencies = [
     "langchain-core>=0.1.0",
@@ -51,6 +50,7 @@ dependencies = [
     "anthropic",
     "openai",
     "huggingface",
+    "sentence-transformers",
     "langchain-huggingface",
     "langchain-anthropic",
     "langchain-openai",
