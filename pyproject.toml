@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "llm-nexus"
-version = "1.0.10"
+version = "1.0.11"
 description = "Unified interface for multiple LLM providers: Anthropic, OpenAI, Groq, and HuggingFace"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -48,6 +48,19 @@ dependencies = [
     "tomli_w",
     "urllib3",
     "python-dotenv",
+    "anthropic",
+    "openai",
+    "huggingface",
+    "langchain-huggingface",
+    "langchain-anthropic",
+    "langchain-openai",
+    "langchain-google-vertexai",
+    "langchain-google-genai",
+    "vertexai",
+    "langchain-groq",
+    "torch",
+    "transformers",
+    "pillow",
 ]
 
 [project.optional-dependencies]

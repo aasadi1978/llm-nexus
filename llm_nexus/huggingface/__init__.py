@@ -3,9 +3,9 @@ from langchain_core.messages import HumanMessage
 import logging
 from os import getenv
 from pydantic import Field
-from utils.ssl_verification import bypass_ssl_verification
+from llm_nexus.config import AI_CONFIG
 
-bypass_ssl_verification() 
+AI_CONFIG.bypass_ssl_verification()
 
 huggingface_basic_model_name = getenv("HUGGINGFACE_BASIC_MODEL", "Qwen/Qwen3.5-35B-A3B")
 huggingface_advanced_model_name = getenv("HUGGINGFACE_ADVANCED_MODEL", "Qwen/Qwen3.5-35B-A3B")
