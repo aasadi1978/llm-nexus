@@ -107,11 +107,19 @@ def hello_qwen():
         print("Failed to initialize Qwen model")
         return None
 
-def huggingface_token_counter(query: str, model: str) -> int:
+def huggingface_token_counter(model: str, **kwargs) -> int:
     """Placeholder for token counting - HuggingFace doesn't have built-in token counter like OpenAI."""
     try:
+        if 'query' in kwargs:
+            message = kwargs['query']
+        elif 'messages' in kwargs:
+            message = kwargs['messages']
+        else:
+            logging.error("No 'query' or 'messages' found in kwargs for token counting.")
+            return 0
+
         # Basic estimation: ~4 characters per token (rough approximation)
-        return len(query) // 4
+        return len(message) // 4
     except Exception:
         logging.error("Error estimating HuggingFace token count.")
         return 0

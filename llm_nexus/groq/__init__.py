@@ -104,9 +104,18 @@ if not LLM_MODEL_INSTANCE.basic_model or not LLM_MODEL_INSTANCE.advanced_model:
             logging.warning("GROQ LLMs are not fully initialized.")
             sys.exit(1)
 
-def groq_token_counter(query: str, model: str) -> int:
+def groq_token_counter(model: str, **kwargs) -> int:
     try:
-        return groq_basic.get_num_tokens(text=query, model=model)
+
+        if 'query' in kwargs:
+            message = kwargs['query']
+        elif 'messages' in kwargs:
+            message = kwargs['messages']
+        else:
+            logging.error("No 'query' or 'messages' found in kwargs for token counting.")
+            return 0
+
+        return groq_basic.get_num_tokens(text=message, model=model, **kwargs)
     except Exception:
         logging.error("Error getting GROQ token count.")
         return 0

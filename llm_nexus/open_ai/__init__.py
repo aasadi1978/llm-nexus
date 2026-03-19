@@ -82,9 +82,17 @@ def setup_openai_llms(http_client=None, http_async_client=None):
 
 openai_basic, openai_advanced = setup_openai_llms()
 
-def openai_token_counter(query: str, model: str) -> int:
+def openai_token_counter(model: str, **kwargs) -> int:
     try:
-        return openai_basic.get_num_tokens(text=query, model=model)
+        if 'query' in kwargs:
+            message = kwargs['query']
+        elif 'messages' in kwargs:
+            message = kwargs['messages']
+        else:
+            logging.error("No 'query' or 'messages' found in kwargs for token counting.")
+            return 0
+
+        return openai_basic.get_num_tokens(text=message, model=model, **kwargs)
     except Exception:
         logging.error("Error getting OpenAI token count.")
         return 0
