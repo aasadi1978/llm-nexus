@@ -7,10 +7,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "llm-nexus"
-version = "1.0.13"
+version = "1.0.14"
 description = "Unified interface for multiple LLM providers: Anthropic, OpenAI, Groq, and HuggingFace"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = "~=3.12"
 license = "LicenseRef-FedEx-Express-Proprietary"
 authors = [
     { name = "Alireza Asadi", email = "alireza.asadi@fedex.com" },
@@ -37,8 +37,6 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
 ]
 dependencies = [

@@ -4,6 +4,7 @@ import logging
 from os import getenv
 from pydantic import Field
 from llm_nexus.config import AI_CONFIG
+from llm_nexus.exceptions import MissingAPIKeyError
 
 AI_CONFIG.bypass_ssl_verification()
 
@@ -82,7 +83,7 @@ def setup_huggingface_llms(http_client=None, http_async_client=None):
             basic_llm = None
 
     else:
-        logging.warning("HUGGINGFACE_API_KEY not found in environment variables.")
+        raise MissingAPIKeyError("HuggingFace", "HUGGINGFACE_API_KEY")
 
     if basic_llm:
         setattr(basic_llm, 'model', huggingface_basic_model_name)

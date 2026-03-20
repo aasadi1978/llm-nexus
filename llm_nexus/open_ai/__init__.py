@@ -3,6 +3,7 @@ from langchain_core.messages import HumanMessage
 import logging
 from os import getenv
 from pydantic import Field
+from ..exceptions import MissingAPIKeyError
 
 openai_basic_model_name = getenv("OPENAI_BASIC_MODEL", "gpt-4o-mini")
 openai_advanced_model_name = getenv("OPENAI_ADVANCED_MODEL", "gpt-5")
@@ -71,7 +72,7 @@ def setup_openai_llms(http_client=None, http_async_client=None):
             basic_llm = None
     
     else:
-        logging.warning("OPENAI_API_KEY not found in environment variables.")
+        raise MissingAPIKeyError("OpenAI", "OPENAI_API_KEY")
 
     if basic_llm:
         setattr(basic_llm, 'model', openai_basic_model_name)

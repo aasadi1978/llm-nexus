@@ -2,13 +2,11 @@ from pathlib import Path
 import logging
 from os import getenv
 from .initialize_anthropic_vertex_models import configure_anthropic_vertex_chat
+from ..exceptions import MissingAPIKeyError
 
 
 if not Path(getenv("GOOGLE_APPLICATION_CREDENTIALS")).resolve().exists():
-    logging.error(
-        "GOOGLE_APPLICATION_CREDENTIALS not found or the file does not exist. "
-        "Please create a .config file with GOOGLE_APPLICATION_CREDENTIALS=path-to-your-key.json"
-    )
+    raise MissingAPIKeyError("Anthropic Vertex AI", "GOOGLE_APPLICATION_CREDENTIALS")
 
 else:
     anthropic_vertex_basic_model, anthropic_vertex_advanced_model, anthropic_vertex_basic_model_name, anthropic_vertex_advanced_model_name = configure_anthropic_vertex_chat()

@@ -1,11 +1,11 @@
 import logging
 from os import getenv
-import sys
 from langchain_groq import ChatGroq
 from langchain_core.messages import HumanMessage
 from pydantic import Field
 from .. import LLM_MODEL_INSTANCE
 from ..config import AI_CONFIG
+from ..exceptions import MissingAPIKeyError
 
 # Modeles: https://console.groq.com/docs/models
 # which one should I use?
@@ -77,7 +77,7 @@ def initialize_groq_models(http_client=None, http_async_client=None):
                 )
 
         else:
-            logging.warning("GROQ_API_KEY not found in environment variables.")
+            raise MissingAPIKeyError("Groq", "GROQ_API_KEY")
 
     except Exception as e:
         logging.error(f"GROQ: Error invoking GROQ LLMs: {str(e)}")
@@ -102,7 +102,7 @@ if not LLM_MODEL_INSTANCE.basic_model or not LLM_MODEL_INSTANCE.advanced_model:
 
         if groq_basic is None or groq_advanced is None:
             logging.warning("GROQ LLMs are not fully initialized.")
-            sys.exit(1)
+            raise Exception("Failed to initialize GROQ LLMs after multiple attempts.")
 
 def groq_token_counter(model: str, **kwargs) -> int:
     try:

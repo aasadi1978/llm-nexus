@@ -4,6 +4,7 @@ from langchain_anthropic import ChatAnthropic
 from langchain_core.messages import HumanMessage
 
 from .. import LLM_MODEL_INSTANCE
+from ..exceptions import MissingAPIKeyError
 
 anthropic_basic_model_name = getenv("ANTHROPIC_BASIC_MODEL", "claude-haiku-4-5-20251001")
 anthropic_advanced_model_name = getenv("ANTHROPIC_ADVANCED_MODEL", "claude-opus-4-1-20250805")
@@ -13,10 +14,7 @@ def initialize_anthropic_models():
         # Get API key from environment
         api_key = getenv("ANTHROPIC_API_KEY")
         if not api_key:
-            raise ValueError(
-                "ANTHROPIC_API_KEY not found in environment variables. "
-                "Please create a .env file with ANTHROPIC_API_KEY=your-key-here"
-            )
+            raise MissingAPIKeyError("Anthropic", "ANTHROPIC_API_KEY")
         else:
             logging.info(f"Anthropic API key found in environment: {api_key[:10]}****")
 
