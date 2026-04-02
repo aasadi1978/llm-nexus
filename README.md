@@ -56,6 +56,67 @@ response = llm_basic.invoke([
 print(response.content)
 ```
 
+## 🤖 Chatbot Assistant
+
+Use the built-in singleton assistant to run a chatbot with conversation history and optional tool execution.
+
+### Import and Ask a Question
+
+```python
+from llm_nexus.assistant import ASSISTANT
+
+response = ASSISTANT.invoke("Summarize the key ideas behind retrieval-augmented generation.")
+print(response)
+```
+
+### Start Interactive Chat (CLI)
+
+```python
+from llm_nexus.assistant import ASSISTANT
+
+ASSISTANT.run_interactive()
+```
+
+### Add Tools and Use Them
+
+```python
+from langchain_core.tools import tool
+from llm_nexus.assistant import ASSISTANT
+
+@tool
+def current_quarter(_: str = "") -> str:
+    """Return the current business quarter."""
+    return "Q2"
+
+# Option 1: Add tool directly
+ASSISTANT.add_custom_tools([current_quarter])
+
+# Option 2: Register category, then load by category name
+ASSISTANT.register_tool_category("business", [current_quarter])
+ASSISTANT.add_tools(["business"])
+
+print(ASSISTANT.invoke("What quarter are we in?"))
+```
+
+### Optional: Change Model for the Assistant
+
+```python
+from llm_nexus.assistant import ASSISTANT
+
+ASSISTANT.llm_model("llm_advanced")
+print(ASSISTANT.invoke("Give me a concise architecture checklist for a chatbot backend."))
+```
+
+### Helpful Assistant Methods
+
+- `ASSISTANT.invoke(query)`: send a message and get a reply
+- `ASSISTANT.run_interactive()`: start terminal chat mode
+- `ASSISTANT.add_custom_tools([...])`: add tool objects directly
+- `ASSISTANT.register_tool_category(name, tools)`: create reusable tool categories
+- `ASSISTANT.add_tools([category])`: load tools from categories
+- `ASSISTANT.clear_history()`: reset conversation state
+- `ASSISTANT.set_system_message(text)`: update behavior prompt
+
 ### Environment Setup
 
 Create `.env` file:
@@ -128,6 +189,7 @@ llm-nexus/
 │   ├── __init__.py        # Auto-configuration
 │   ├── config.py          # Configuration system
 │   ├── llm.py             # Core LLM singleton
+│   ├── assistant.py       # Chatbot assistant singleton and tool workflow
 │   ├── anthropic_llm/     # Anthropic support
 │   ├── anthropic_vertex/  # Vertex AI support
 │   ├── open_ai/           # OpenAI support
