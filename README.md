@@ -24,6 +24,8 @@ A unified, provider-agnostic Python wrapper for multiple LLM providers including
 pip install git+https://github.com/alireza-asadi_fedex/llm-nexus.git
 ```
 
+This package includes a private dependency (`ptv`) from GitHub. Configure GitHub authentication before install. See [INSTALL.md](INSTALL.md) for secure setup details.
+
 > **Note**: If you encounter installation issues, please contact the author at alireza.asadi@fedex.com for a pre-built distributable package (e.g., `.whl` file).
 
 ### Install with Specific Providers

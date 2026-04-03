@@ -20,6 +20,7 @@ from langgraph.graph import StateGraph, add_messages
 from langgraph.prebuilt import ToolNode, tools_condition
 from pydantic import BaseModel, Field
 from llm_nexus import llm_advanced, llm_basic as default_llm
+from llm_nexus.tool_plugins import register_default_tools
 from llm_nexus.utils.exception_logger import log_exception
 from llm_nexus.utils.draw_graph import disp_state_graph
 from llm_nexus.utils.text_cleaner import clean_up
@@ -247,9 +248,9 @@ class InteractiveAssistant:
         
         return self
     
-    def add_tools(self, categories: List[str]) -> 'InteractiveAssistant':
+    def add_tools(self, categories: List[str] = None) -> 'InteractiveAssistant':
         """
-        Add tools from registered categories.
+        Add tools from registered categories. If no categories are specified, all tools from the registry will be added.
 
         Args:
             categories: List of category names to add
@@ -260,6 +261,8 @@ class InteractiveAssistant:
         Raises:
             ValueError: If unknown tool category is specified
         """
+
+        categories = categories or list(self.TOOL_REGISTRY.keys())
         for category in categories:
             if category in self.TOOL_REGISTRY:
                 self._tools.extend(self.TOOL_REGISTRY[category])
@@ -521,3 +524,4 @@ class InteractiveAssistant:
                 print("\nAn error occurred. Please try again.\n")
 
 ASSISTANT = InteractiveAssistant.get_instance()
+register_default_tools()

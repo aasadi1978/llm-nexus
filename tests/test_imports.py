@@ -1,7 +1,6 @@
 """Test basic imports work."""
 import pytest
 
-
 def test_main_imports():
     """Test that main package imports work."""
     from llm_nexus import LLM_MODEL_INSTANCE, get_token_count
